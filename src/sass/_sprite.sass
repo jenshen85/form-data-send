@@ -1,0 +1,132 @@
+// SASS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home
+//   width: $icon-home-width
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites
+$client-name: 'client'
+$client-x: 95px
+$client-y: 0px
+$client-offset-x: -95px
+$client-offset-y: 0px
+$client-width: 76px
+$client-height: 71px
+$client-total-width: 652px
+$client-total-height: 80px
+$client-image: 'sprite.png'
+$client: (95px, 0px, -95px, 0px, 76px, 71px, 652px, 80px, 'sprite.png', 'client', )
+$loader-name: 'loader'
+$loader-x: 421px
+$loader-y: 0px
+$loader-offset-x: -421px
+$loader-offset-y: 0px
+$loader-width: 100px
+$loader-height: 71px
+$loader-total-width: 652px
+$loader-total-height: 80px
+$loader-image: 'sprite.png'
+$loader: (421px, 0px, -421px, 0px, 100px, 71px, 652px, 80px, 'sprite.png', 'loader', )
+$map-marker-name: 'map_marker'
+$map-marker-x: 201px
+$map-marker-y: 0px
+$map-marker-offset-x: -201px
+$map-marker-offset-y: 0px
+$map-marker-width: 80px
+$map-marker-height: 71px
+$map-marker-total-width: 652px
+$map-marker-total-height: 80px
+$map-marker-image: 'sprite.png'
+$map-marker: (201px, 0px, -201px, 0px, 80px, 71px, 652px, 80px, 'sprite.png', 'map_marker', )
+$pad-name: 'pad'
+$pad-x: 0px
+$pad-y: 0px
+$pad-offset-x: 0px
+$pad-offset-y: 0px
+$pad-width: 65px
+$pad-height: 80px
+$pad-total-width: 652px
+$pad-total-height: 80px
+$pad-image: 'sprite.png'
+$pad: (0px, 0px, 0px, 0px, 65px, 80px, 652px, 80px, 'sprite.png', 'pad', )
+$protect-name: 'protect'
+$protect-x: 311px
+$protect-y: 0px
+$protect-offset-x: -311px
+$protect-offset-y: 0px
+$protect-width: 80px
+$protect-height: 71px
+$protect-total-width: 652px
+$protect-total-height: 80px
+$protect-image: 'sprite.png'
+$protect: (311px, 0px, -311px, 0px, 80px, 71px, 652px, 80px, 'sprite.png', 'protect', )
+$truck-name: 'truck'
+$truck-x: 551px
+$truck-y: 0px
+$truck-offset-x: -551px
+$truck-offset-y: 0px
+$truck-width: 101px
+$truck-height: 71px
+$truck-total-width: 652px
+$truck-total-height: 80px
+$truck-image: 'sprite.png'
+$truck: (551px, 0px, -551px, 0px, 101px, 71px, 652px, 80px, 'sprite.png', 'truck', )
+$spritesheet-width: 652px
+$spritesheet-height: 80px
+$spritesheet-image: 'sprite.png'
+$spritesheet-sprites: ($client, $loader, $map-marker, $pad, $protect, $truck, )
+$spritesheet: (652px, 80px, 'sprite.png', $spritesheet-sprites, )
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home
+//   @include sprite-width($icon-home)
+//
+// .icon-email
+//   @include sprite($icon-email)
+//
+// Example usage in HTML:
+//   `display: block` sprite:
+//   <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//   // CSS
+//   .icon {
+//     display: inline-block;
+//   }
+//
+//   // HTML
+//   <i class="icon icon-home"></i>
+@mixin sprite-width($sprite)
+  width: nth($sprite, 5)
+
+@mixin sprite-height($sprite)
+  height: nth($sprite, 6)
+
+@mixin sprite-position($sprite)
+  $sprite-offset-x: nth($sprite, 3)
+  $sprite-offset-y: nth($sprite, 4)
+  background-position: $sprite-offset-x  $sprite-offset-y
+
+@mixin sprite-image($sprite)
+  $sprite-image: nth($sprite, 9)
+  background-image: url(#{$sprite-image})
+
+@mixin sprite($sprite)
+  @include sprite-image($sprite)
+  @include sprite-position($sprite)
+  @include sprite-width($sprite)
+  @include sprite-height($sprite)
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SASS
+//
+// @include sprites($spritesheet-sprites)
+@mixin sprites($sprites)
+  @each $sprite in $sprites
+    $sprite-name: nth($sprite, 10)
+    .#{$sprite-name}
+      @include sprite($sprite)

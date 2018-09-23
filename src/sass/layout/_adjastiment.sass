@@ -1,0 +1,59 @@
+.wrapper
+  width: 100%
+  position: relative
+  margin: 0 auto
+  display: flex
+  flex-direction: column
+
+.container
+  max-width: 1200px
+  padding: 0 15px
+  margin: 0 auto
+
+.button
+  outline: transparent
+  cursor: pointer
+  white-space: nowrap
+  +tr(.3s)
+
+// footer down start
+html,
+body
+  height: 100%
+
+.wrapper
+  height: 100%  
+  display: flex
+  flex-direction: column
+
+header,
+footer
+  flex: 0 0 auto
+
+main
+  flex: 1 0 auto
+  position: relative
+// footer down end
+
+// class for footer absolute
+.wrapper-height
+  height: auto
+
+// section
+.section
+  min-height: 500px
+
+// section-title
+
+.section-title
+  +bernr
+  font-size: rem(60px)
+
+.sub-title
+  +bernr
+  font-size: rem(35px)
+  line-height: rem(35px)
+
+.bg-word__img
+  width: 100%
+
