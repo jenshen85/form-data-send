@@ -1,8 +1,5 @@
 'use strict'
 
-const FORM = document.getElementById('form');
-const FORM_SUBMIT = document.getElementById('submit')
-
 const inputImg = document.getElementById('image');
 const output = document.getElementById('file-image');
 const clearForm = document.getElementById('clear');
@@ -24,10 +21,3 @@ if (inputImg && output && clearForm) {
     }
   })
 }
-
-FORM.addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  FORM.submit();
-})
-
