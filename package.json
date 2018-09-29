@@ -64,6 +64,7 @@
     "lodash": "^4.17.10",
     "node-normalize-scss": "^8.0.0",
     "object-fit-images": "^3.2.4",
+    "slick-carousel": "^1.8.1",
     "svg4everybody": "^2.1.9"
   }
 }

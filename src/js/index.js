@@ -20,3 +20,4 @@ svg4everybody();
 import './lib/polyfills'
 import './common/main';
 import './common/form';
+import './common/slider-slick';
