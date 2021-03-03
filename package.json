@@ -60,7 +60,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.2.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "lodash": "^4.17.10",
     "node-normalize-scss": "^8.0.0",
     "object-fit-images": "^3.2.4",
